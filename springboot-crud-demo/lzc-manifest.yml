@@ -1,0 +1,18 @@
+name: crud-demo
+package: cloud.lazycat.app.crud-demo
+version: 0.0.1
+description: A simple CRUD demo application with SQLite database
+license: https://choosealicense.com/licenses/mit/
+homepage:
+author:
+application:
+  subdomain: crud-demo
+  dependences:
+    - backend
+  routes:
+    - /=file:///lzcapp/pkg/content/web
+    - /backend/api/=http://backend:8080
+services:
+  backend:
+    image: registry.lazycat.cloud/cursorzz/adoptopenjdk/openjdk8:latest
+    entrypoint: "java -jar /lzcapp/pkg/content/server.jar"
